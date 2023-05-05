@@ -1,0 +1,52 @@
+<div class="container clearfix">
+    <div class="income">
+        <h2 class="icome__title">Income</h2>
+        <div class="income__list">
+            <% let index=0 %>
+            <% for(let entry of entries){ %>
+                <% if(entry.type==1){ %>
+                    <div class="item clearfix" id="income-<%=index%>">
+                        <!-- <div class="inctime"><%= (entry.timeofEntry ? entry.timeofEntry:'--:--') %>&emsp;&emsp;&emsp;&emsp;</div> -->
+                        <div class="incdate"><%= entry.fullDate  %> &emsp;&emsp;</div>
+                        <div class="item__description">
+                            <%= entry.description %>
+                        </div>
+                        <div class="right clearfix">
+                            <div class="item__value">+<%= entry.value %>
+                            </div>
+                            <form action='/<%=entry._id%>?_method=delete' method="post" class="item__delete">
+                                <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    <% index+=1 %>
+                <% }%>
+            <% } %>
+        </div>
+    </div>
+    <div class="expenses">
+        <h2 class="expenses__title">Expenses</h2>
+        <div class="expenses__list">
+            <% index=0 %>
+            <% for(let entry of entries){ %>
+                <% if(entry.type==0){ %>
+                    <div class="item clearfix" id="expense-<%=index%>">
+                        <!-- <div class="exptime"><%= (entry.timeofEntry ? entry.timeofEntry:'--:--') %>&emsp;&emsp;&emsp;&emsp;</div> -->
+                        <div class="expdate"><%= entry.fullDate  %> &emsp;&emsp;</div>
+                        <div class="item__description">
+                                <%= entry.description %>
+                        </div>
+                        <div class="right clearfix">
+                            <div class="item__value">-<%= entry.value %>
+                            </div>
+                            <form action='/<%=entry._id%>?_method=delete' method="post" class="item__delete">
+                                <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    <% index+=1 %>
+                <% }%>
+            <% } %>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<% layout('layouts/boilerplate')%>
+    <div class="container">
+        <h2 class="text-center mt-5">Expected Expenditure</h2>
+        <table class="table table-hover table-striped mt-3">
+            <thead>
+                <tr class="table-info">
+                    <th scope="col">Food</th>
+                    <th scope="col">Medicine</th>
+                    <th scope="col">Grocery</th>
+                    <th scope="col">Leisure</th>
+                    <th scope="col">Gym</th>
+                    <th scope="col">Misc</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table-success">
+                    <th scope="row">
+                        <%= foodAverage %>
+                    </th>
+                    <th scope="row">
+                        <%= medicineAverage %>
+                    </th>
+                    <th scope="row">
+                        <%= groceryAverage %>
+                    </th>
+                    <th scope="row">
+                        <%= leisureAverage %>
+                    </th>
+                    <th scope="row">
+                        <%= gymAverage %>
+                    </th>
+                    <th scope="row">
+                        <%= miscAverage %>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+
+        
+            <h2 class="text-center mt-4">Events List</h2>
+            <table class="table table-striped table-hover mt-3">
+                <thead>
+                    <tr class="table-info">
+                        <th scope="col">#</th>
+                        <th scope="col">Event</th>
+                        <th scope="col">Value</th>
+                        <th scope="col">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% events.forEach((element,index)=>{%>
+                        <tr class="table-success">
+                            <th scope="row">
+                                <%= index %>
+                            </th>
+                            <td>
+                                <%= element.description %>
+                            </td>
+                            <td>
+                                <%= element.value %>
+                            </td>
+                            <td>
+                                <%= element.date.getDate() %>
+                            </td>
+                        </tr>
+                        <%}) %>
+                </tbody>
+            </table>
+            
+    </div>
+    
